@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import uploadfile.dto.AlbumAdminViewDTO;
+import uploadfile.dto.AlbumAdminViewForSelectDTO;
 import uploadfile.dto.AlbumCreateDTO;
 import uploadfile.exception.NotFoundException;
 import uploadfile.model.Album;
@@ -27,9 +28,9 @@ public class AlbumService {
 		return modelMaper.map(album, AlbumAdminViewDTO.class);
 	}
 	
-	public List<AlbumAdminViewDTO> getAllAlbum() {
+	public List<AlbumAdminViewForSelectDTO> getAllAlbum() {
 		
-		return albumRepository.findAll().stream().map(album->modelMaper.map(album, AlbumAdminViewDTO.class)).collect(Collectors.toList());
+		return albumRepository.findAll().stream().map(album->modelMaper.map(album, AlbumAdminViewForSelectDTO.class)).collect(Collectors.toList());
 	}
 
 

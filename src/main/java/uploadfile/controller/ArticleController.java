@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -65,10 +66,9 @@ public class ArticleController {
 	}
 	
 	@PostMapping("v1/article")
-	public ResponseEntity<?> createNews(@RequestParam("article") String article,@RequestParam ("imageFile") MultipartFile multipartFile)
-			throws IOException {
-		ArticleCreateDTO articleCreateDTO = objectMapper.readValue(article,ArticleCreateDTO.class);
-		articleService.articleCreate(articleCreateDTO,multipartFile);
+	public ResponseEntity<?> createArticle(@RequestBody ArticleCreateDTO articleCreateDTO) {
+		
+		articleService.articleCreate(articleCreateDTO);
 		
 		return ResponseEntity.ok(new GenericResponse("Article Created..."));
 

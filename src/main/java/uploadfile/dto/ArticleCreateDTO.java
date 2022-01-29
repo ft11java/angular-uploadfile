@@ -12,6 +12,7 @@ public class ArticleCreateDTO implements Serializable {
 	private String newsTitle;
 	private String newsBody;
 	private boolean deploy;
+	private String imageName;
 	
 
 }

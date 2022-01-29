@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 import uploadfile.dto.AlbumAdminViewDTO;
+import uploadfile.dto.AlbumAdminViewForSelectDTO;
 import uploadfile.dto.AlbumCreateDTO;
 import uploadfile.service.AlbumService;
 
@@ -35,8 +36,8 @@ public class AlbumController {
 	}
 	
 	@GetMapping("v1/album")
-	public ResponseEntity<List<AlbumAdminViewDTO>> getAllAlbum(){
-		List<AlbumAdminViewDTO> album=albumService.getAllAlbum();		
+	public ResponseEntity<List<AlbumAdminViewForSelectDTO>> getAllAlbum(){
+		List<AlbumAdminViewForSelectDTO> album=albumService.getAllAlbum();		
 		
 		return ResponseEntity.ok(album);
 		

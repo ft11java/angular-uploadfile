@@ -35,7 +35,7 @@ public class ImageController {
 	@PostMapping("v1/image")
 	public ResponseEntity<?> uploadImage(@RequestParam("albumId") String albumId,
 			@RequestParam("image") MultipartFile multipartFile) throws IOException {
-		imageService.uploadImage(albumId, multipartFile);
+			imageService.uploadImage(albumId, multipartFile);
 		return ResponseEntity.ok(new GenericResponse("Image Uploaded..."));
 
 	}

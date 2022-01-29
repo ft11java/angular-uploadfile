@@ -27,7 +27,7 @@ import uploadfile.exception.FileStorageException;
 public class ImageService {
 	private final AlbumService albumService;
 	private final ServletContext context;
-	private final String FILE_PATH_ROOT = "src/main/resources/static/article-images/";
+	private final String FILE_PATH_ROOT = "../article-images/";
 
 	public byte[] getImageView(String imageName) {
 		byte[] image = new byte[0];
@@ -50,7 +50,8 @@ public class ImageService {
 		final String uid = UUID.randomUUID().toString();
 		String extension = FilenameUtils.getExtension(multipartFile.getOriginalFilename());
 		fileName = uid + "." + extension;
-		String uploadDir = "src/main/resources/static/article-images/";
+		String uploadDir = "../article-images/";
+		//String uploadDir = "src/main/resources/static/article-images/";
 		Path uploadPath = Paths.get(uploadDir);
 		try (InputStream inputStream = multipartFile.getInputStream()) {
 			Path filePath = uploadPath.resolve(fileName);
